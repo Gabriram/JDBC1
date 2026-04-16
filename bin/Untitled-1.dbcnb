@@ -1,0 +1,36 @@
+cells:
+  - kind: 2
+    languageId: sql
+    value: |
+      drop TABLE prenotazioni
+    metadata: {}
+  - kind: 2
+    languageId: sql
+    value: |-
+      CREATE TABLE prenotazioni ( 
+          id_prenotazione SERIAL PRIMARY KEY,
+          ospiti_id INT,
+          camera_id INT,
+          FOREIGN KEY (ospiti_id) REFERENCES ospiti(id_ospiti),
+          FOREIGN KEY (camera_id) REFERENCES camere(id_camere)
+      );
+    metadata: {}
+  - kind: 2
+    languageId: sql
+    value: |-
+      INSERT INTO prenotazioni (ospiti_id, camera_id) VALUES (1, 1);
+      INSERT INTO prenotazioni (ospiti_id, camera_id) VALUES (2, 2);
+      INSERT INTO prenotazioni (ospiti_id, camera_id) VALUES (3, 3);
+      INSERT INTO prenotazioni (ospiti_id, camera_id) VALUES (4, 4);
+      INSERT INTO prenotazioni (ospiti_id, camera_id) VALUES (5, 5);
+    metadata: {}
+  - kind: 2
+    languageId: sql
+    value: ""
+    metadata: {}
+metadata:
+  conn:
+    id: d3jCg28vjszAuWnxP4siY
+    name: PostegreSQL 18
+  database: jdbces1
+  schema: public
